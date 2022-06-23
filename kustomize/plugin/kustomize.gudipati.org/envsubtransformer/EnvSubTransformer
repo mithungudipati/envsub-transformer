@@ -1,0 +1,11 @@
+#!/bin/bash
+
+d=$(pwd)
+input=$(cat -)
+
+while [ "$d" != "/" ]; do
+   input=$(echo "$input" | sed -e "s|__PR_NUMBER|$PR_NUMBER|")
+   d=$(dirname $d)
+done
+
+echo "$input"
